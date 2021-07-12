@@ -4,5 +4,5 @@
  */
 
 export default class URLConstant {
-    static baseURL = ' https://morning-tor-55292.herokuapp.com/';
+    static baseURL = 'https://morning-tor-55292.herokuapp.com/';
 }
