@@ -124,3 +124,44 @@
     padding: 10px 0px 15px 40px; */
 
     /* margin: 5px; 5px */
+
+/*Adding media query for responsive design*/
+
+@media only screen and (max-width: 812px) {
+  textarea {
+    top: 27px;
+    /* position: absolute; */
+    width: 312px !important;
+    left: 250px;
+    outline: none;
+  }
+
+  .textarea textarea {
+    height: 700px;
+    width: 100%;
+    border-bottom: white;
+    border-right: white;
+    resize: none;
+    outline: none;
+  }
+  .lineBreak hr {
+  left: 64px;
+  position: absolute;
+  width: 500px !important;
+  }
+
+  .heading {
+    display: flex;
+    min-height: 10px;
+    max-width: 90%;
+    position: relative;
+    left: 35px;
+    top: 2px;
+  }
+
+  .save-btn {
+    position: relative;
+    top: 325px;
+    left: 449px;
+  }
+}
