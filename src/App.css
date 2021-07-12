@@ -16,6 +16,16 @@
     /* background: lightblue; */
     /* Just so it's visible */
   }
+
+  .add-btn button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+  }
+
   .title {
     left: 375px;
     position: relative;
@@ -73,6 +83,16 @@
     position: relative;
     top: 330px;
     left: 650px;
+  }
+
+  .save-btn button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: blue
   }
 
   .notes ul {

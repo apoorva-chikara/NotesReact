@@ -154,7 +154,7 @@ const getallNotes = async (onSave) => {
                return (
                  <>
                  <div className="add-btn">
-                    <button onClick={() =>addNewNote()}>+</button>
+                    <button onClick={() =>addNewNote()}>➕</button>
                 </div>
                  <div className="container">
                     <div className="notes">
@@ -174,7 +174,7 @@ const getallNotes = async (onSave) => {
     } else {
       return (<>
        <div className="add-btn">
-                    <button onClick={() =>addNewNote()}>+</button>
+                    <button onClick={() =>addNewNote()}>➕</button>
        </div>
       <p className="NoNotes">No Notes Found!</p>
       </>)
