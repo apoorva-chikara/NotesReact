@@ -1,7 +1,7 @@
 /**
  * Core React Imports
  */
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 /**
  * Helper React packages
@@ -36,7 +36,7 @@ import Textarea from "../textarea/textarea.component";
  *      to create a newNote and update the noteDescription to text area and Note list
  * 
  */
-const NoteList = forwardRef((props) => {
+const NoteList = (props) => {
    
     /**
      * Declaring two new state variable, which we'll call "noteList" and "noteDescription"
@@ -179,7 +179,7 @@ const getallNotes = async (onSave) => {
       <p className="NoNotes">No Notes Found!</p>
       </>)
     }
-})   
+};   
 
   
 export default NoteList;

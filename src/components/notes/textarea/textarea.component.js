@@ -16,7 +16,6 @@ import APPConstant from '../../../constants/app.constants';
 
 export default function Textarea (props) {
     const { value, change: updateTextArea } = props;
-    console.log(props);
 
     // helps to select the placeholder only for new notes added
     const selectAllText = (event) => {

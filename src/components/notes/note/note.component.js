@@ -9,7 +9,6 @@ import { useState } from "react";
  */
 export default function Note (props) {
    const { noteList, callback } = props;
-   console.log(noteList);
    const listItems = noteList.map((note, index) =>
     <ListNote note={note} callback={callback} key={index}/>
   );
@@ -28,14 +27,6 @@ export default function Note (props) {
  */
 const ListNote = (props) => {
   const { note, callback } = props;
-
-  console.log(note);
-  // const changeColor = (_id) => {
-  // console.log('in changeCO')
-  //       setSelected(_id);
-  // };
-  // changeColor(note._id)
-
   return (<li onClick={() => { callback(null, note); }} 
               key={note?._id ? note._id : note.uuid}
               style={{backgroundColor:  note.selected ? 'grey' : ''}}
