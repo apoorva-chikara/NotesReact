@@ -45,6 +45,7 @@ const NoteList = (props) => {
      */
     const [notesList, setnotesList] = useState([]);
     const [noteDescription, setNoteDescription] = useState({});
+    const [btnDisable, setBtnStatus] = useState(false);
     
     // configuring toast congfiguration
     toast.configure();
@@ -109,6 +110,8 @@ const noteSavedToDB = async () => {
         return;
     }
 
+    // disable save button for future clicks
+    setBtnStatus(true);
     // checking if the note needs to be saved or updated based on unique identifier
     // there could be other way of doing that too! Call API
     if (noteDescription.hasOwnProperty('_id')) {
@@ -122,11 +125,13 @@ const noteSavedToDB = async () => {
      // this updates the note list showing on view
      noteUpdateonSave(noteDescription);
      toast('Note Saved Successfully!');
+     setBtnStatus(false);
      
 
   } catch (error) {
      alert(error);
-     toast('Note not saved!')
+     toast('Note not saved!');
+     setBtnStatus(false);
   }
   
 }
@@ -164,9 +169,9 @@ const getallNotes = async (onSave) => {
                  <Textarea value={noteDescription?.description} 
                            change={textDescriptionHandler} 
                            />
-
+                
                  <div className="save-btn">
-                      <button onClick={noteSavedToDB}>Save</button>
+                      <button onClick={noteSavedToDB} disabled={btnDisable}>Save</button>
                  </div>
                  </div>
                  </>
@@ -183,3 +188,5 @@ const getallNotes = async (onSave) => {
 
   
 export default NoteList;
+
+
