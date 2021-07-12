@@ -19,7 +19,7 @@ const saveNote = {
         try {
             const URL = `${URLConstant.baseURL}save`
             const response = await axios.post(URL, {data: note});
-            console.log(response);
+            return response;
         } catch (error) {
             console.log(error);
         }
@@ -28,7 +28,7 @@ const saveNote = {
         try {
             const URL = `${URLConstant.baseURL}update`;
             const response = await axios.post(URL, {data: note});
-            console.log(response);
+            return response;
         } catch (error) {
             console.log(error);
         } 

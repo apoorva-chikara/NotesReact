@@ -66,6 +66,7 @@
     border-bottom: white;
     border-right: white;
     resize: none;
+    outline: none;
   }
 
   .save-btn {

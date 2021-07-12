@@ -66,7 +66,7 @@ const noteHandler = (note) => {
 }
 
 // updates the new/updated note description in the state variable
-const noteUpdateonSave = (note) => {
+const noteUpdateonSave = (note, savedNote = {}) => {
        const index = note?.uuid ? 
                      notesList.findIndex((el) => el.uuid === note.uuid):
                      notesList.findIndex((el) => el._id === note._id);
@@ -114,12 +114,15 @@ const noteSavedToDB = async () => {
     if (noteDescription.hasOwnProperty('_id')) {
       await SaveNote.udpateNote(noteDescription);
      } else {
-     await SaveNote.saveNote(noteDescription);
+      const { data } = await SaveNote.saveNote(noteDescription);
+      setNoteDescription(data);
+      getallNotes();
      }
 
      // this updates the note list showing on view
      noteUpdateonSave(noteDescription);
      toast('Note Saved Successfully!');
+     
 
   } catch (error) {
      alert(error);
@@ -137,12 +140,10 @@ const keepPlaceHolder = () => {
 }
 
 //API call to get all the noteList
-const getallNotes = async () => {
+const getallNotes = async (onSave) => {
     try {
           const allNotes = await GetAllData.getData()
           setnotesList(allNotes);
-          if (allNotes.length > 0) textDescriptionHandler(null, allNotes[0]);
-          // console.log(allNotes);
        } catch (error) {
         console.log(error);
       }
@@ -171,7 +172,12 @@ const getallNotes = async () => {
                  </>
         )
     } else {
-      return <p className="NoNotes">No Notes Found!</p>
+      return (<>
+       <div className="add-btn">
+                    <button onClick={() =>addNewNote()}>+</button>
+       </div>
+      <p className="NoNotes">No Notes Found!</p>
+      </>)
     }
 })   
 
